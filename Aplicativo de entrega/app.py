@@ -25,7 +25,7 @@ def opcao_invalida():
 
 def subtitulo(texto):
     os.system("cls")
-    linha = "*" (len(texto))
+    linha = "*" * (len(texto))
     print(linha)
     print(texto)
     print(linha)
@@ -42,11 +42,12 @@ def cadastrar_restaurante():
 
 def listar_restaurante():
     subtitulo("Listando os restaurantes")
+    print(f" {'Nome do restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | Status" )
     for restaurante in restaurantes:
         nome_restaurante = restaurante["nome"]
         categoria = restaurante["categoria"]
         ativo = "Ativado" if restaurante["ativo"] else "Desativado"
-        print(f"{nome_restaurante} | {categoria} | {ativo}")
+        print(f"{nome_restaurante.ljust(20)} | {categoria.ljust(20)} | {ativo}")
     voltar_menu()
 
 def ativar_restaurante():
@@ -65,29 +66,27 @@ def ativar_restaurante():
 
     voltar_menu()
 
-def escolher_opção():
+def escolher_opcao():
     try:
-        opcao =int(input("Escolha uma opção : "))
-        if opcao == 1:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        if opcao_escolhida == 1: 
             cadastrar_restaurante()
-
-        elif opcao == 2:
+        elif opcao_escolhida == 2: 
             listar_restaurante()
-
-        elif opcao == 3:
+        elif opcao_escolhida == 3: 
             ativar_restaurante()
-
-        elif opcao == 4: 
+        elif opcao_escolhida == 4: 
             sair_do_programa()
-        else:
+        else: 
             opcao_invalida()
     except:
         opcao_invalida()
+        
 
 def main ():
     os.system("cls")
     exibir_menu()
-    escolher_opção()
+    escolher_opcao()
 
 if __name__ == "__main__":
     main()
