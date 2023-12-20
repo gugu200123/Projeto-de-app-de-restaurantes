@@ -1,4 +1,5 @@
 import os
+from modelos.restaurante import Restaurante
 
 restaurantes = [{"nome":"Burguer King","categoria":"Fast Food","ativo":False}, 
                 {"nome":"MCdonalds","categoria":"Fast Food","ativo":True}]
